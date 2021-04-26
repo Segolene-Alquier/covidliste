@@ -1,6 +1,6 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { camelCaseDeep } from "react/shared/casing";
+import { camelCaseDeep } from "components/shared/casing";
 
 const queryClient = new QueryClient();
 

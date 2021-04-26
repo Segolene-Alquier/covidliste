@@ -1,5 +1,5 @@
 import Rails from "@rails/ujs";
-import { camelCaseDeep, snakeCaseDeep } from "react/shared/casing";
+import { camelCaseDeep, snakeCaseDeep } from "components/shared/casing";
 
 const handleErrors = (response) => {
   if (!response.ok) throw Error(response.statusText);
