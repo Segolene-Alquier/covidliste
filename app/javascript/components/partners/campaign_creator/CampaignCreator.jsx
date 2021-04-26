@@ -7,8 +7,11 @@ import { RootWrapper } from "components/shared/RootWrapper";
 import { CampaignCreatorReach } from "components/partners/campaign_creator/CampaignCreatorReach";
 import { CampaignCreatorFieldBasic } from "components/partners/campaign_creator/fields/CampaignCreatorFieldBasic";
 import { CampaignCreatorTimeRange } from "components/partners/campaign_creator/fields/CampaignCreatorTimeRange";
+import { CampaignCreatorAgeRange } from "components/partners/campaign_creator/fields/CampaignCreatorAgeRange";
+import { CampaignCreatorMaxDistance } from "components/partners/campaign_creator/fields/CampaignCreatorMaxDistance";
 import { GenericError } from "components/partners/GenericError";
 import dayjs from "dayjs";
+import { CampaignCreatorFieldWrapper } from "components/partners/campaign_creator/fields/CampaignCreatorFieldWrapper";
 
 const _CampaignCreator = ({ initialCampaign, vaccinationCenter }) => {
   const createCampaign = useCreateCampaignMutation(vaccinationCenter);
@@ -53,12 +56,8 @@ const _CampaignCreator = ({ initialCampaign, vaccinationCenter }) => {
           <label htmlFor="extraInfo">Extra Info</label>
           <Field name="extraInfo" as="textarea" />
 
-          <CampaignCreatorFieldBasic label="Age minimum" name="minAge" />
-          <CampaignCreatorFieldBasic label="Age maximum" name="maxAge" />
-          <CampaignCreatorFieldBasic
-            label="Localisation des volontaires"
-            name="maxDistanceInMeters"
-          />
+          <CampaignCreatorAgeRange />
+          <CampaignCreatorMaxDistance />
 
           <h2>Lancer la campagne</h2>
           <CampaignCreatorReach vaccinationCenter={vaccinationCenter} />
