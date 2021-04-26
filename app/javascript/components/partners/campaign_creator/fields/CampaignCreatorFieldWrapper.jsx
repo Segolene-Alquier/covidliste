@@ -5,6 +5,7 @@ export const CampaignCreatorFieldWrapper = ({
   sublabel,
   name,
   meta,
+  metas,
   children,
 }) => {
   return (
@@ -14,10 +15,18 @@ export const CampaignCreatorFieldWrapper = ({
         {sublabel && <p>{sublabel}</p>}
         {children}
       </label>
-      {meta.error && (
+      {meta?.error && (
         <div className="alert alert-danger" role="alert">
           {meta.error}
         </div>
+      )}
+      {metas?.map(
+        (meta) =>
+          meta.error && (
+            <div className="alert alert-danger" role="alert">
+              {meta.error}
+            </div>
+          )
       )}
     </div>
   );

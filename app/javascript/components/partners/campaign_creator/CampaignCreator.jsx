@@ -6,7 +6,9 @@ import { api } from "components/shared/api";
 import { RootWrapper } from "components/shared/RootWrapper";
 import { CampaignCreatorReach } from "components/partners/campaign_creator/CampaignCreatorReach";
 import { CampaignCreatorFieldBasic } from "components/partners/campaign_creator/fields/CampaignCreatorFieldBasic";
+import { CampaignCreatorTimeRange } from "components/partners/campaign_creator/fields/CampaignCreatorTimeRange";
 import { GenericError } from "components/partners/GenericError";
+import dayjs from "dayjs";
 
 const _CampaignCreator = ({ initialCampaign, vaccinationCenter }) => {
   const createCampaign = useCreateCampaignMutation(vaccinationCenter);
@@ -18,12 +20,12 @@ const _CampaignCreator = ({ initialCampaign, vaccinationCenter }) => {
           ...pick(initialCampaign, [
             "availableDoses",
             "vaccineType",
-            "startsAt",
-            "endsAt",
             "minAge",
             "maxAge",
             "maxDistanceInMeters",
           ]),
+          startsAt: dayjs(initialCampaign.startsAt),
+          endsAt: dayjs(initialCampaign.endsAt),
           extraInfo: "",
         }}
         onSubmit={console.log /*createCampaign.mutate*/}
@@ -43,6 +45,8 @@ const _CampaignCreator = ({ initialCampaign, vaccinationCenter }) => {
             <option value="moderna">Moderna</option>
             <option value="janssen">Janssen / Johnson & Johnson</option>
           </Field>
+
+          <CampaignCreatorTimeRange />
 
           <h2>Sélection des volontaires</h2>
 

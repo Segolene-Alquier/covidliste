@@ -2,14 +2,8 @@ import React from "react";
 import { useField } from "formik";
 import { CampaignCreatorFieldWrapper } from "components/partners/campaign_creator/fields/CampaignCreatorFieldWrapper";
 
-export const CampaignCreatorFieldBasic = ({
-  label,
-  sublabel,
-  name,
-  validate,
-  type,
-}) => {
-  const [field, meta] = useField({ name, validate, type });
+export const CampaignCreatorFieldBasic = ({ label, sublabel, name, type }) => {
+  const [field, meta] = useField({ name, type });
   return (
     <CampaignCreatorFieldWrapper
       label={label}
