@@ -14,6 +14,8 @@ export const CampaignCreatorMaxDistance = () => {
         name="maxDistanceInMeters"
         size="2"
         type="number"
+        min="1"
+        max="50"
         value={values.maxDistanceInMeters / 1000}
         onChange={(e) =>
           setFieldValue("maxDistanceInMeters", e.target.value * 1000)

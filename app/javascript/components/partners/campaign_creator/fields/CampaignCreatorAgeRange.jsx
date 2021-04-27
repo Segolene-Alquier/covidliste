@@ -9,9 +9,9 @@ export const CampaignCreatorAgeRange = () => {
       names={["minAge", "maxAge"]}
     >
       <span>Entre</span>
-      <Field name="minAge" size="2" type="number" />
+      <Field name="minAge" size="2" type="number" min="18" max="130" />
       <span>et</span>
-      <Field name="maxAge" size="2" type="number" />
+      <Field name="maxAge" size="2" type="number" min="18" max="130" />
       <span>ans inclus</span>
     </CampaignCreatorFieldWrapper>
   );

@@ -8,8 +8,10 @@ export const CampaignCreatorFieldWrapper = ({
   names = [name],
   children,
   className = "",
+  warning,
 }) => {
   const { getFieldMeta } = useFormikContext();
+  const errors = names.map((name) => getFieldMeta(name).error).filter(Boolean);
   return (
     <div className={`CampaignCreatorField ${className}`}>
       <label htmlFor={name}>
@@ -17,16 +19,16 @@ export const CampaignCreatorFieldWrapper = ({
         {sublabel && <p>{sublabel}</p>}
         {children}
       </label>
-      {names.map((name) => {
-        const { error } = getFieldMeta(name);
-        return (
-          error && (
-            <div className="alert alert-danger" role="alert">
-              {error}
-            </div>
-          )
-        );
-      })}
+      {errors.map((error) => (
+        <div className="alert alert-danger" role="alert" key={error.slice(50)}>
+          {error}
+        </div>
+      ))}
+      {warning && !errors.length && (
+        <div className="alert alert-warning" role="alert">
+          {warning}
+        </div>
+      )}
     </div>
   );
 };

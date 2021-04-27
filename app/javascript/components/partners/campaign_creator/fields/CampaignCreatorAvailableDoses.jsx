@@ -5,7 +5,7 @@ import { CampaignCreatorFieldWrapper } from "components/partners/campaign_creato
 export const CampaignCreatorAvailableDoses = () => {
   return (
     <CampaignCreatorFieldWrapper label="Nombre de doses" name="availableDoses">
-      <Field type="number" name="availableDoses" />
+      <Field type="number" name="availableDoses" min={1} max={200} />
     </CampaignCreatorFieldWrapper>
   );
 };

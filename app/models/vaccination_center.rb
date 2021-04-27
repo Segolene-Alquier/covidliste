@@ -103,7 +103,7 @@ class VaccinationCenter < ApplicationRecord
   def build_campaign_smart_defaults
     last_campaign = campaigns.order(:created_at).last
     last_campaign_slice = last_campaign.as_json.slice("extra_info", "vaccine_type", "min_age", "max_age", "max_distance_in_meters", "available_doses")
-    campaigns.build(last_campaign_slice.merge({starts_at: 5.minutes.from_now, ends_at: 4.hour.from_now}))
+    campaigns.build(last_campaign_slice.merge({starts_at: 11.minutes.from_now, ends_at: 4.hours.from_now}))
   end
 
   private
