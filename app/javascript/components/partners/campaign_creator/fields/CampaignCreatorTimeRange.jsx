@@ -17,7 +17,7 @@ export const CampaignCreatorTimeRange = () => {
           doivent-ils se présenter ?
         </>
       }
-      metas={[getFieldMeta("startsAt"), getFieldMeta("endsAt")]}
+      names={["startsAt", "endsAt"]}
     >
       <span>Entre</span>
       <TimePicker

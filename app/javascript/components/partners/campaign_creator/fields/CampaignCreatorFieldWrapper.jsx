@@ -1,13 +1,14 @@
 import React from "react";
+import { useFormikContext } from "formik";
 
 export const CampaignCreatorFieldWrapper = ({
   label,
   sublabel,
   name,
-  meta,
-  metas,
+  names = [name],
   children,
 }) => {
+  const { getFieldMeta } = useFormikContext();
   return (
     <div className="CampaignCreatorField">
       <label htmlFor={name}>
@@ -15,19 +16,16 @@ export const CampaignCreatorFieldWrapper = ({
         {sublabel && <p>{sublabel}</p>}
         {children}
       </label>
-      {meta?.error && (
-        <div className="alert alert-danger" role="alert">
-          {meta.error}
-        </div>
-      )}
-      {metas?.map(
-        (meta) =>
-          meta.error && (
+      {names.map((name) => {
+        const { error } = getFieldMeta(name);
+        return (
+          error && (
             <div className="alert alert-danger" role="alert">
-              {meta.error}
+              {error}
             </div>
           )
-      )}
+        );
+      })}
     </div>
   );
 };
