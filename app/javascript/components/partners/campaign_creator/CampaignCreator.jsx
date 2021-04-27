@@ -10,6 +10,7 @@ import { CampaignCreatorTimeRange } from "components/partners/campaign_creator/f
 import { CampaignCreatorAgeRange } from "components/partners/campaign_creator/fields/CampaignCreatorAgeRange";
 import { CampaignCreatorMaxDistance } from "components/partners/campaign_creator/fields/CampaignCreatorMaxDistance";
 import { CampaignCreatorExtraInfo } from "components/partners/campaign_creator/fields/CampaignCreatorExtraInfo";
+import { CampaignCreatorVaccineType } from "components/partners/campaign_creator/fields/CampaignCreatorVaccineType";
 import { GenericError } from "components/partners/GenericError";
 import dayjs from "dayjs";
 
@@ -40,15 +41,7 @@ const _CampaignCreator = ({ initialCampaign, vaccinationCenter }) => {
             name="availableDoses"
             type="number"
           />
-
-          <label htmlFor="vaccineType">Type</label>
-          <Field as="select" name="vaccineType">
-            <option value="astrazeneca">AstraZeneca</option>
-            <option value="pfizer">Pfizer</option>
-            <option value="moderna">Moderna</option>
-            <option value="janssen">Janssen / Johnson & Johnson</option>
-          </Field>
-
+          <CampaignCreatorVaccineType />
           <CampaignCreatorTimeRange />
 
           <h2>Sélection des volontaires</h2>

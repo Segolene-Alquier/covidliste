@@ -7,10 +7,11 @@ export const CampaignCreatorFieldWrapper = ({
   name,
   names = [name],
   children,
+  className = "",
 }) => {
   const { getFieldMeta } = useFormikContext();
   return (
-    <div className="CampaignCreatorField">
+    <div className={`CampaignCreatorField ${className}`}>
       <label htmlFor={name}>
         {label && <h3>{label}</h3>}
         {sublabel && <p>{sublabel}</p>}
