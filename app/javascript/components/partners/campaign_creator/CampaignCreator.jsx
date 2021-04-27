@@ -5,7 +5,6 @@ import { Formik, Field, Form } from "formik";
 import { api } from "components/shared/api";
 import { RootWrapper } from "components/shared/RootWrapper";
 import { CampaignCreatorReach } from "components/partners/campaign_creator/CampaignCreatorReach";
-import { CampaignCreatorFieldBasic } from "components/partners/campaign_creator/fields/CampaignCreatorFieldBasic";
 import { CampaignCreatorTimeRange } from "components/partners/campaign_creator/fields/CampaignCreatorTimeRange";
 import { CampaignCreatorAgeRange } from "components/partners/campaign_creator/fields/CampaignCreatorAgeRange";
 import { CampaignCreatorMaxDistance } from "components/partners/campaign_creator/fields/CampaignCreatorMaxDistance";
@@ -13,6 +12,7 @@ import { CampaignCreatorExtraInfo } from "components/partners/campaign_creator/f
 import { CampaignCreatorVaccineType } from "components/partners/campaign_creator/fields/CampaignCreatorVaccineType";
 import { GenericError } from "components/partners/GenericError";
 import dayjs from "dayjs";
+import { CampaignCreatorAvailableDoses } from "components/partners/campaign_creator/fields/CampaignCreatorAvailableDoses";
 
 const _CampaignCreator = ({ initialCampaign, vaccinationCenter }) => {
   const createCampaign = useCreateCampaignMutation(vaccinationCenter);
@@ -36,18 +36,12 @@ const _CampaignCreator = ({ initialCampaign, vaccinationCenter }) => {
       >
         <Form>
           <h2>Doses et disponibilité</h2>
-          <CampaignCreatorFieldBasic
-            label="Nombre de doses"
-            name="availableDoses"
-            type="number"
-          />
+          <CampaignCreatorAvailableDoses />
           <CampaignCreatorVaccineType />
           <CampaignCreatorTimeRange />
 
           <h2>Sélection des volontaires</h2>
-
           <CampaignCreatorExtraInfo />
-
           <CampaignCreatorAgeRange />
           <CampaignCreatorMaxDistance />
 
